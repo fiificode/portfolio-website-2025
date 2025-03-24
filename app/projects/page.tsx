@@ -3,20 +3,10 @@
 import Image from "next/image"
 import PageTransition from "@/components/page-transition"
 import { Card } from "@/components/Card"
-import { BikeIcon, Calendar, Clock, Hourglass, PersonStanding } from "lucide-react"
 import { SimpleLayout } from "@/components/SimpleLayout"
 import { CraneSeeker } from "@/assets"
 
 export default function Work() {
-  // Sample work items - in a real project, this would come from a CMS or API
-  const workItems = [
-    { id: 1, title: "Dream Sequence", category: "Digital Illustration" },
-    { id: 2, title: "Urban Fantasy", category: "Mixed Media" },
-    { id: 3, title: "Nature's Whisper", category: "Digital Illustration" },
-    { id: 4, title: "Ethereal Portraits", category: "Character Design" },
-    { id: 5, title: "City Lights", category: "Digital Illustration" },
-    { id: 6, title: "Mystical Creatures", category: "Character Design" },
-  ]
 
   function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
@@ -42,28 +32,28 @@ export default function Work() {
       description:
         'A medication reminder app for patients to stay on track with their medication schedule.',
       link: { href: '#', label: 'github.com' },
-      logo: PersonStanding,
+      logo: CraneSeeker,
     },
     {
       name: 'My Finance',
       description:
         'A personal finance management app to help users track their expenses and savings.',
       link: { href: '#', label: 'github.com' },
-      logo: Hourglass,
+      logo: CraneSeeker,
     },
     {
-      name: 'cosmOS',
+      name: 'ShopMe',
       description:
-        'The operating system that powers our Planetaria space shuttles.',
+        'An e-commerce platform for selling products and services.',
       link: { href: '#', label: 'github.com' },
-      logo: Calendar,
+      logo: CraneSeeker,
     },
     {
-      name: 'OpenShuttle',
+      name: 'My Portfolio',
       description:
-        'The schematics for the first rocket I designed that successfully made it to orbit.',
+        'A personal portfolio website to showcase my work and projects.',
       link: { href: '#', label: 'github.com' },
-      logo: Clock,
+      logo: CraneSeeker,
     },
   ]
 
