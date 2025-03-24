@@ -1,48 +1,53 @@
-"use client"
+'use client'
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import Image from "next/image"
-import PageTransition from "@/components/page-transition"
+const Loader = () => {
+  const [progress, setProgress] = useState(0);
+  const router = useRouter();
 
-export default function Home() {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        const newProgress = oldProgress + 1;
+        if (newProgress === 100) {
+          clearInterval(timer);
+          setTimeout(() => router.push('/home'), 1000);
+        }
+        return Math.min(newProgress, 100);
+      });
+    }, 30);
+
+    return () => clearInterval(timer);
+  }, [router]);
+
   return (
-    <PageTransition>
-      <div className="container mx-auto px-4 py-8">
-        <p className="text-center text-sm uppercase tracking-wide mb-6">Hey everyone, and welcome to my website</p>
-
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-center leading-none mb-12">
-          <div>FRANKLIN</div>
-          <div>MENSAH</div>
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          <div className="md:col-span-1">
-            <p className="text-xs uppercase leading-relaxed">
-              2D illustrator from the UK, I create art that captures the essence of dreams and reality. My distinct
-              style brings scenes to life.
-            </p>
+    <div className="max-h-screen h-screen bg-white dark:bg-black flex flex-col items-center gap-4 justify-center md:justify-between p-4 sm:p-6 md:p-6">
+      <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">FRANKLIN</h1>
+      <div className="flex flex-col items-center gap-4 mb-16 sm:mb-20 md:mb-0">
+        <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] aspect-[3/4] relative">
+          <img
+            src="/myProfilePic.jpeg"
+            alt="Portrait"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px]">
+          <div className="flex justify-between text-sm mb-1">
+            <span className="font-medium">LOADING</span>
+            <span className="font-medium">{progress}%</span>
           </div>
-
-          <div className="md:col-span-1 flex justify-center">
-            <div className="relative w-full max-w-xs aspect-[3/4]">
-              <Image
-                src={"/myProfilePic.jpeg"}
-                alt="Franklin Mensah"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-
-          <div className="md:col-span-1">
-            <p className="text-xs uppercase leading-relaxed">
-              Explore my gallery to see the magic unfold and be inspired by my vision. Let my illustrations transport
-              you to a world of imagination.
-            </p>
+          <div className="w-full bg-gray-200 h-0.5">
+            <div
+              className="bg-black h-0.5 transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       </div>
-    </PageTransition>
-  )
-}
+      <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">MENSAH</h1>
+    </div>
+  );
+};
 
+export default Loader;

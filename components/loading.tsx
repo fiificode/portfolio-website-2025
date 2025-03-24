@@ -12,7 +12,7 @@ const Loader = () => {
         const newProgress = oldProgress + 1;
         if (newProgress === 100) {
           clearInterval(timer);
-          setTimeout(() => router.push('/home'), 500);
+          setTimeout(() => router.push('/home'), 1000);
         }
         return Math.min(newProgress, 100);
       });
@@ -22,12 +22,12 @@ const Loader = () => {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-between p-4 sm:p-6 md:p-8">
+    <div className="max-h-screen h-screen bg-white flex flex-col items-center gap-4 justify-center md:justify-between p-4 sm:p-6 md:p-6">
       <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">FRANKLIN</h1>
-      <div className="flex flex-col items-center gap-4 mb-16 sm:mb-24 md:mb-32">
+      <div className="flex flex-col items-center gap-4 mb-16 sm:mb-20 md:mb-0">
         <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] aspect-[3/4] relative">
           <img
-            src="https://images.unsplash.com/photo-1539701938214-0d9736e1c16b?auto=format&fit=crop&q=80&w=500"
+            src="/myProfilePic.jpeg"
             alt="Portrait"
             className="w-full h-full object-cover"
           />

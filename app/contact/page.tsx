@@ -44,13 +44,13 @@ export default function Contact() {
 
             <div className="space-y-4">
               <p>
-                <strong>Email:</strong> hello@jemimachambers.com
+                <strong>Email:</strong> fiificode@gmail.com
               </p>
               <p>
-                <strong>Location:</strong> London, UK
+                <strong>Location:</strong> Accra, Ghana
               </p>
               <p>
-                <strong>Social:</strong> @jemimachambers
+                <strong>Social:</strong> @fiificode
               </p>
             </div>
           </div>
