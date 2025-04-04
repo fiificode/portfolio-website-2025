@@ -1,7 +1,7 @@
-import type React from "react"
-import type { Metadata } from "next"
-import PageClient from "./pageClient"
-import './globals.css'
+import type React from "react";
+import type { Metadata } from "next";
+import PageClient from "./pageClient";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Franklin | Portfolio",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Franklin | Portfolio",
     description: "Portfolio of Franklin Mensah, Frontend Developer from Ghana",
     type: "website",
-    url: "https://franklin-mensah.com",
+    url: "https://portfolio-website-2025-delta.vercel.app",
   },
   twitter: {
     title: "Franklin | Portfolio",
@@ -23,15 +23,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
-  return <PageClient>{children}</PageClient>
+  return <PageClient>{children}</PageClient>;
 }
-
-
-
